@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Gatherly.Api.Data.Migrations
 {
     [DbContext(typeof(GatherlyContext))]
-    [Migration("20250502010705_SeedGenre")]
-    partial class SeedGenre
+    [Migration("20250502035232_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,7 +73,7 @@ namespace Gatherly.Api.Data.Migrations
                             Id = 1,
                             Category = ".NET, Blazor, Razor",
                             CreatorId = 1,
-                            Date = new DateTime(2025, 5, 2, 13, 7, 4, 669, DateTimeKind.Local).AddTicks(6200),
+                            Date = new DateTime(2025, 5, 2, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Study .NET together!",
                             MaxMember = 4,
                             Place = "Dev Academy, New Market",
@@ -124,6 +124,7 @@ namespace Gatherly.Api.Data.Migrations
                             Email = "daisy@daisy.com",
                             FullName = "DaisyChoi",
                             PasswordHash = "1234",
+                            ProfileUrl = "",
                             UserName = "Daisy"
                         });
                 });

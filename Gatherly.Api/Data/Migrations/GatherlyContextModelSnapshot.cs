@@ -70,7 +70,7 @@ namespace Gatherly.Api.Data.Migrations
                             Id = 1,
                             Category = ".NET, Blazor, Razor",
                             CreatorId = 1,
-                            Date = new DateTime(2025, 5, 2, 13, 7, 4, 669, DateTimeKind.Local).AddTicks(6200),
+                            Date = new DateTime(2025, 5, 2, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Study .NET together!",
                             MaxMember = 4,
                             Place = "Dev Academy, New Market",
@@ -121,6 +121,7 @@ namespace Gatherly.Api.Data.Migrations
                             Email = "daisy@daisy.com",
                             FullName = "DaisyChoi",
                             PasswordHash = "1234",
+                            ProfileUrl = "",
                             UserName = "Daisy"
                         });
                 });

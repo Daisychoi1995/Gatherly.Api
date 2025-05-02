@@ -13,7 +13,8 @@ public class GatherlyContext(DbContextOptions<GatherlyContext> options)
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     modelBuilder.Entity<Study>().HasData(
-      new { 
+      new Study
+      { 
         Id = 1, 
         Title = "Let's study .NET",
         Description = "Study .NET together!",
@@ -21,18 +22,20 @@ public class GatherlyContext(DbContextOptions<GatherlyContext> options)
         MaxMember = 4,
         Place = "Dev Academy, New Market",
         CreatorId = 1,
-        Date = DateTime.Now
+        Date = new DateTime(2025, 5, 2, 0, 0, 0, DateTimeKind.Utc)
       }
     );
 
     modelBuilder.Entity<User>().HasData(
-      new { 
+      new User
+      { 
         Id = 1, 
         UserName = "Daisy",
         FullName = "DaisyChoi",
         Description = "Hello! I'm Daisy",
         Email = "daisy@daisy.com",
-        PasswordHash = "1234"
+        PasswordHash = "1234",
+        ProfileUrl = ""
       }
     );
   }

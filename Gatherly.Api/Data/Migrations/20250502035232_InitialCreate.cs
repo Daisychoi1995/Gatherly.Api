@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Gatherly.Api.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedGenre : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,12 +58,12 @@ namespace Gatherly.Api.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Studies",
                 columns: new[] { "Id", "Category", "CreatorId", "Date", "Description", "MaxMember", "Place", "Title", "UserNameId" },
-                values: new object[] { 1, ".NET, Blazor, Razor", 1, new DateTime(2025, 5, 2, 13, 7, 4, 669, DateTimeKind.Local).AddTicks(6200), "Study .NET together!", 4, "Dev Academy, New Market", "Let's study .NET", null });
+                values: new object[] { 1, ".NET, Blazor, Razor", 1, new DateTime(2025, 5, 2, 0, 0, 0, 0, DateTimeKind.Utc), "Study .NET together!", 4, "Dev Academy, New Market", "Let's study .NET", null });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Description", "Email", "FullName", "PasswordHash", "ProfileUrl", "UserName" },
-                values: new object[] { 1, "Hello! I'm Daisy", "daisy@daisy.com", "DaisyChoi", "1234", null, "Daisy" });
+                values: new object[] { 1, "Hello! I'm Daisy", "daisy@daisy.com", "DaisyChoi", "1234", "", "Daisy" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Studies_UserNameId",
