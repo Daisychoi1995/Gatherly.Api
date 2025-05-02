@@ -21,7 +21,7 @@ public class GatherlyContext(DbContextOptions<GatherlyContext> options)
         Category = ".NET, Blazor, Razor" ,
         MaxMember = 4,
         Place = "Dev Academy, New Market",
-        CreatorId = 1,
+        UserId = 1,
         Date = new DateTime(2025, 5, 2, 0, 0, 0, DateTimeKind.Utc)
       }
     );

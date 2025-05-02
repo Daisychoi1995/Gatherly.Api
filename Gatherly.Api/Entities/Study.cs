@@ -16,9 +16,9 @@ public class Study
 
   public required string Place { get; set; }
 
-  public required int CreatorId { get; set; }
+  public required int UserId { get; set; }
 
   public required DateTime Date { get; set; }
 
-  public virtual User? UserName { get; set; }
+  public virtual User? User { get; set; }
 }

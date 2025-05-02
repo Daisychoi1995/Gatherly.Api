@@ -9,5 +9,6 @@ builder.Services.AddDbContext<GatherlyContext>(options => options.UseNpgsql(conn
 
 var app = builder.Build();
 app.MapUsersEndpoints();
+app.MapStudiesEndpoints();
 
 app.Run();
