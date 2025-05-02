@@ -1,6 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Gatherly.Api.Data;
+using Microsoft.EntityFrameworkCore;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+
+var connString= builder.Configuration.GetConnectionString("Gatherly");
+builder.Services.AddDbContext<GatherlyContext>(options => options.UseNpgsql(connString));
+
+var app = builder.Build();
 
 app.Run();

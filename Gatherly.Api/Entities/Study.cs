@@ -10,7 +10,7 @@ public class Study
 
   public required string Description { get; set; }
 
-  public required List<string> Category { get; set; }
+  public required string Category { get; set; }
 
   public required int MaxMember { get; set; }
 
@@ -18,7 +18,7 @@ public class Study
 
   public required int CreatorId { get; set; }
 
-  public required DateTime StudyDate { get; set; }
+  public required DateTime Date { get; set; }
 
   public virtual User? UserName { get; set; }
 }

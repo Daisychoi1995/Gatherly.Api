@@ -16,7 +16,7 @@ public class User
 
   public required string PasswordHash { get; set; }
 
-  public required string ProfileUrl { get; set; }
+  public required string? ProfileUrl { get; set; }
 
   public IReadOnlyList<Study>? StudyPost { get; set; }
 
