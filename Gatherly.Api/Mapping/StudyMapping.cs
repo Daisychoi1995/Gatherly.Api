@@ -6,7 +6,20 @@ namespace Gatherly.Api.Mapping;
 
 public static class StudyMapping
 {
-  public static StudyDetailDto ToGameDetailDto(this Study study)
+  public static Study ToEnTity(this CreateStudyDto study)
+  {
+    return new Study()
+    {
+      Title = study.Title,
+      Description = study.Description,
+      Category = study.Category,
+      MaxMember = study.MaxMember,
+      Place = study.Place,
+      UserId = study.UserId,
+      Date = study.Date
+    };
+  }
+  public static StudyDetailDto ToStudyDetailsDto(this Study study)
   {
     return new(
       study.Id,
@@ -20,4 +33,5 @@ public static class StudyMapping
       study.User?.UserName ?? "Unknown" 
     );
   }
+
 }

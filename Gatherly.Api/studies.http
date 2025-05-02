@@ -1,1 +1,18 @@
 GET http://localhost:5090/studies
+
+###
+GET http://localhost:5090/studies/1
+
+###
+POST http://localhost:5090/studies
+Content-Type: application/json
+
+{
+    "title": "Let's study Blazor",
+    "description": "Study Blazor together!",
+    "category": ".NET, Blazor, Razor",
+    "maxNumber": 4,
+    "place": "o3 space, New Market",
+    "userId": 1,
+    "date": "2025-05-02T00:00:00Z"
+}
