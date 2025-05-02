@@ -60,6 +60,15 @@ public static class StudiesEndpoints
       return Results.NoContent();
     });
 
+    // DELETE /studies/{id}
+    group.MapDelete("/{id}", async (int id, GatherlyContext dbContext) => {
+      await dbContext.Studies
+              .Where(study => study.Id == id)
+              .ExecuteDeleteAsync();
+              
+      return Results.NoContent();
+    });
+
     return group;
   }
 }

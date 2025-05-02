@@ -30,3 +30,6 @@ Content-Type: application/json
     "userId": 1,
     "date": "2025-05-02T00:00:00Z"
 }
+
+###
+DELETE http://localhost:5090/studies/1
