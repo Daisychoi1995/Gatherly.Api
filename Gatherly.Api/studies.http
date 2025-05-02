@@ -16,3 +16,17 @@ Content-Type: application/json
     "userId": 1,
     "date": "2025-05-02T00:00:00Z"
 }
+
+###
+PUT http://localhost:5090/studies/1
+Content-Type: application/json
+
+{
+    "title": "Let's not study Blazor",
+    "description": "Study Blazor together!",
+    "category": ".NET, Blazor, Razor",
+    "maxNumber": 4,
+    "place": "o3 space, New Market",
+    "userId": 1,
+    "date": "2025-05-02T00:00:00Z"
+}

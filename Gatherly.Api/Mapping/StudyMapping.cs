@@ -19,6 +19,22 @@ public static class StudyMapping
       Date = study.Date
     };
   }
+
+  public static Study ToEnTity(this UpdateStudyDto study, int id)
+  {
+    return new Study()
+    {
+      Id = id,
+      Title = study.Title,
+      Description = study.Description,
+      Category = study.Category,
+      MaxMember = study.MaxMember,
+      Place = study.Place,
+      UserId = study.UserId,
+      Date = study.Date
+    };
+  }
+
   public static StudyDetailDto ToStudyDetailsDto(this Study study)
   {
     return new(

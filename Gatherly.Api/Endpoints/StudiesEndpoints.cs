@@ -43,6 +43,23 @@ public static class StudiesEndpoints
       );
     }).WithParameterValidation();
 
+    // PUT /studies/{id}
+    group.MapPut("/{id}", async (int id, UpdateStudyDto updateStudy, GatherlyContext dbContext) => {
+      var existingStudy = await dbContext.Studies.FindAsync(id);
+
+      if(existingStudy is null)
+      {
+        return Results.NotFound();
+      }
+
+      dbContext.Entry(existingStudy)
+               .CurrentValues
+               .SetValues(updateStudy.ToEnTity(id));
+
+      await dbContext.SaveChangesAsync();
+      return Results.NoContent();
+    });
+
     return group;
   }
 }
