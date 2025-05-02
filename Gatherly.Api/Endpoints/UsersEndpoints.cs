@@ -33,6 +33,22 @@ public static class UsersEndpoints
         );
     }).WithParameterValidation();
 
+    //PUT /user/{id}
+    group.MapPut("/{id}", async (int id, UpdateUserDto updateUser, GatherlyContext dbContext) => {
+      var existingUser = await dbContext.Users.FindAsync(id);
+
+      if(existingUser is null)
+      {
+        return Results.NotFound();
+      }
+
+      dbContext.Entry(existingUser)
+              .CurrentValues
+              .SetValues(updateUser.ToEntity(id));
+
+      await dbContext.SaveChangesAsync();
+      return Results.NoContent();
+    });
 
   return group;
   }

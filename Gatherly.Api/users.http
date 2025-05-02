@@ -1,14 +1,25 @@
-GET http://localhost:5090/user/1
+GET http://localhost:5090/user/3
 
 ###
 POST http://localhost:5090/user
 Content-Type: application/json
 
 {
-  "userName": "Daisy C",
+  "userName": "Hyeji C",
   "fullName": "DaisyChoi",
   "description": "daisy@daisy.com",
   "email": "Hello! I'm Daisy",
-  "PasswordHash": "123",
-  "profileUrl": ""
+  "PasswordHash": "123"
+}
+
+###
+PUT http://localhost:5090/user/3
+Content-Type: application/json
+
+{
+  "userName": "ChoiHyeji",
+  "fullName": "DaisyChoi",
+  "description": "daisy@daisy.com",
+  "email": "Hello! I'm Daisy",
+  "PasswordHash": "123"
 }

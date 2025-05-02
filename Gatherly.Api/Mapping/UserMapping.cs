@@ -12,11 +12,26 @@ public static class UserMapping
     return new User() 
     {
       UserName = user.UserName,
-      FullName = user.UserName,
+      FullName = user.FullName,
       Description = user.Description,
       Email = user.Email,
       PasswordHash = user.PasswordHash,
       ProfileUrl = user.ProfileUrl
+    };
+  }
+
+  public static User ToEntity(this UpdateUserDto user, int id)
+  {
+    return new User() 
+    {
+      Id = id,
+      UserName = user.UserName,
+      FullName = user.FullName,
+      Description = user.Description,
+      Email = user.Email,
+      PasswordHash = user.PasswordHash,
+      ProfileUrl = user.ProfileUrl,
+      StudyPost = user.StudyPost
     };
   }
   public static UserDetailsDto ToUserDetailsDto(this User user)
