@@ -1,4 +1,4 @@
-using System;
+using BCrypt.Net;
 using Gatherly.Api.Dtos;
 using Gatherly.Api.Entities;
 
@@ -15,7 +15,7 @@ public static class UserMapping
       FullName = user.FullName,
       Description = user.Description,
       Email = user.Email,
-      PasswordHash = user.PasswordHash,
+      PasswordHash = HashPassword(user.PasswordHash),
       ProfileUrl = user.ProfileUrl
     };
   }
@@ -29,11 +29,12 @@ public static class UserMapping
       FullName = user.FullName,
       Description = user.Description,
       Email = user.Email,
-      PasswordHash = user.PasswordHash,
+      PasswordHash = HashPassword(user.PasswordHash),
       ProfileUrl = user.ProfileUrl,
       StudyPost = user.StudyPost
     };
   }
+
   public static UserDetailsDto ToUserDetailsDto(this User user)
   {
     return new(
@@ -45,5 +46,10 @@ public static class UserMapping
       user.ProfileUrl,
       user.StudyPost
     );
+  }
+
+  public static string HashPassword(string password)
+  {
+    return BCrypt.Net.BCrypt.HashPassword(password);
   }
 }

@@ -33,7 +33,7 @@ public static class UsersEndpoints
         );
     }).WithParameterValidation();
 
-    //PUT /user/{id}
+    // PUT /user/{id}
     group.MapPut("/{id}", async (int id, UpdateUserDto updateUser, GatherlyContext dbContext) => {
       var existingUser = await dbContext.Users.FindAsync(id);
 
