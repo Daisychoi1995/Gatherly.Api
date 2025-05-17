@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Gatherly.Api.Data.Migrations
 {
     [DbContext(typeof(GatherlyContext))]
-    [Migration("20250502035232_InitialCreate")]
+    [Migration("20250517114031_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -37,9 +37,6 @@ namespace Gatherly.Api.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
@@ -58,12 +55,12 @@ namespace Gatherly.Api.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("UserNameId")
+                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserNameId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Studies");
 
@@ -72,12 +69,12 @@ namespace Gatherly.Api.Data.Migrations
                         {
                             Id = 1,
                             Category = ".NET, Blazor, Razor",
-                            CreatorId = 1,
                             Date = new DateTime(2025, 5, 2, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Study .NET together!",
                             MaxMember = 4,
                             Place = "Dev Academy, New Market",
-                            Title = "Let's study .NET"
+                            Title = "Let's study .NET",
+                            UserId = 1
                         });
                 });
 
@@ -131,11 +128,13 @@ namespace Gatherly.Api.Data.Migrations
 
             modelBuilder.Entity("Gatherly.Api.Entities.Study", b =>
                 {
-                    b.HasOne("Gatherly.Api.Entities.User", "UserName")
+                    b.HasOne("Gatherly.Api.Entities.User", "User")
                         .WithMany("StudyPost")
-                        .HasForeignKey("UserNameId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("UserName");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Gatherly.Api.Entities.User", b =>

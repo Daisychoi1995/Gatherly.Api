@@ -14,6 +14,6 @@ public record class StudyDetailDto(
   [Required][StringLength(50)] string Place,
   [Required] int UserId,
   [Required] DateTime Date,
-  [Required] string User
+  [Required] string UserName
 );
 

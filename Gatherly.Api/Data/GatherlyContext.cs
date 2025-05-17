@@ -14,11 +14,11 @@ public class GatherlyContext(DbContextOptions<GatherlyContext> options)
   {
     modelBuilder.Entity<Study>().HasData(
       new Study
-      { 
-        Id = 1, 
+      {
+        Id = 1,
         Title = "Let's study .NET",
         Description = "Study .NET together!",
-        Category = ".NET, Blazor, Razor" ,
+        Category = ".NET, Blazor, Razor",
         MaxMember = 4,
         Place = "Dev Academy, New Market",
         UserId = 1,
